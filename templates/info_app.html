@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block contentheader%}
+Info Aplikasi
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Info Aplikasi</h1>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h2 class="h5 text-gray-900">Tentang Aplikasi</h2>
+                            <p>Ini adalah aplikasi klasifikasi produk tahu dengan menggunakan metode Naive Bayes dan CART. Aplikasi ini dirancang untuk memudahkan pengguna dalam mengelompokkan produk tahu berdasarkan berbagai fitur seperti aroma, tekstur, cita rasa, dan masa kadaluarsa.</p>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h2 class="h5 text-gray-900">Fitur Utama</h2>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check"></i> Klasifikasi produk tahu berdasarkan berbagai fitur.</li>
+                                <li><i class="fas fa-check"></i> Laporan grafik pertumbuhan data dan distribusi kategori.</li>
+                                <li><i class="fas fa-check"></i> Sistem login dan registrasi pengguna.</li>
+                            </ul>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h2 class="h5 text-gray-900">Pengembang</h2>
+                            <p>Nama Pengembang: Luthfi</p>
+                            <p>Email: luthfi@gmail.com</p>
+                        </div>
+                        <div class="text-center mb-4">
+                            <h2 class="h5 text-gray-900">Kontak</h2>
+                            <p>Jika Anda memiliki pertanyaan atau umpan balik, silakan hubungi kami di <a href="mailto:luthfi@gmail.com">luthfi@gmail.com</a>.</p>
+                        </div>
+                        <div class="text-center">
+                            <a class="btn btn-primary" href="{{ url_for('read_root') }}">Kembali ke Beranda</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block contentheader %}
+Data Detail Pengguna
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Detail Pengguna</h6>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <strong>ID:</strong>
+                </div>
+                <div class="col-md-8">
+                    <p class="mb-0">{{ user.id }}</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <strong>Username:</strong>
+                </div>
+                <div class="col-md-8">
+                    <p class="mb-0">{{ user.username }}</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <strong>Email:</strong>
+                </div>
+                <div class="col-md-8">
+                    <p class="mb-0">{{ user.email }}</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/users/{{ user.id }}/edit" class="btn btn-info">Edit</a>
+                <a href="/users/" class="btn btn-secondary">Kembali ke Daftar Pengguna</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

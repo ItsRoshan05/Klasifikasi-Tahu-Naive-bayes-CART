@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block contentheader %}
+Edit Pengguna
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Edit Pengguna</h6>
+        </div>
+        <div class="card-body">
+            <form action="/users/{{ user.id }}" method="post">
+                <input type="hidden" name="_method" value="PUT">
+                
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" value="{{ user.username }}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password (kosongkan jika tidak diubah):</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="repeat_password">Repeat Password:</label>
+                    <input type="password" id="repeat_password" name="repeat_password" class="form-control">
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <a href="/users/" class="btn btn-secondary">Kembali ke Daftar Pengguna</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

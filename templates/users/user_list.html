@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block csstambahan %}
+<link href="{{ url_for('static', path='vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block contentheader %}
+Users List
+{% endblock %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Users DataTable</h6>
+        <a href="{{ url_for('form') }}" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> Tambah Pengguna
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Aksi</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <a href="/users/{{ user.id }}" class="btn btn-info btn-sm" title="View"><i class="fas fa-eye"></i></a>
+                            <a href="/users/{{ user.id }}/edit" class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-edit"></i></a>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" data-user-id="{{ user.id }}" data-user-name="{{ user.username }}"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Penghapusan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Mang Ea bang kamu mau hapus data pengguna <strong id="userName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block jstambahan %}
+<!-- Page level plugins -->
+<script src="{{ url_for('static', path='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var userId = button.data('user-id'); // Extract info from data-* attributes
+        var userName = button.data('user-name');
+        var modal = $(this);
+        modal.find('#userName').text(userName);
+        modal.find('#deleteForm').attr('action', '/users/' + userId + '/delete');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-toggle="dropdown"]').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+            console.log('Dropdown clicked');
+        });
+    });
+});
+</script>
+
+{% endblock %}

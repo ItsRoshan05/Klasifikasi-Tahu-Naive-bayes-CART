@@ -1,0 +1,30 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#result {
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.bg-ya {
+    background-color: #3a7888 !important;
+    border-color: #285fa7 !important;
+}
+.bg-tidak {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.card-success {
+    border-color: #469ead;
+    background-color: #d4edda;
+    color: #155724;
+}
+.card-danger {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+    color: #721c24;
+}

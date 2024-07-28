@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block csstambahan %}
+<link href="{{ url_for('static', path='vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block contentheader %}
+Predictions List
+{% endblock %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Predictions DataTable</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Tahu</th>
+                        <th>Aroma</th>                        
+                        <th>Tekstur</th>                        
+                        <th>Cita Rasa</th>                        
+                        <th>Masa Kadaluarsa</th>                        
+                        <th>Prediksi Naive Bayes</th>
+                        <th>Score Naive BayesT</th>
+                        <th>Prediksi CART</th>                        
+                        <th>Score CART</th>                        
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in predictions %}
+                    <tr>
+                        <td>{{ data.id }}</td>
+                        <td>{{ data.produk_tahu }}</td>
+                        <td>{{ data.aroma }}</td>
+                        <td>{{ data.tekstur }}</td>
+                        <td>{{ data.cita_rasa }}</td>
+                        <td>{{ data.masa_kadaluarsa }}</td>
+                        <td>{{ data.prediction_nb }}</td>
+                        <td>{{ data.score_nb }}</td>
+                        <td>{{ data.prediction_cart }}</td>
+                        <td>{{ data.score_cart }}</td>
+
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" data-user-id="{{ data.id }}" data-user-name="{{ data.produk_tahu }}"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Penghapusan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Mang Ea bang kamu mau hapus data pengguna <strong id="userName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block jstambahan %}
+<!-- Page level plugins -->
+<script src="{{ url_for('static', path='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var userId = button.data('user-id'); // Extract info from data-* attributes
+        var userName = button.data('user-name');
+        var modal = $(this);
+        modal.find('#userName').text(userName);
+        modal.find('#deleteForm').attr('action', '/predictions/' + userId + '/delete');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-toggle="dropdown"]').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (event) {
+            console.log('Dropdown clicked');
+        });
+    });
+});
+</script>
+
+{% endblock %}

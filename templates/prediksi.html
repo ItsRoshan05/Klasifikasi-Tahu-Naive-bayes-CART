@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block contentheader%}
+Prediksi
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Klasifikasi Tahu</h1>
+    <form action="/predict/" method="post">
+        <div class="form-group">
+            <label for="produk_tahu">Produk Tahu</label>
+            <select class="form-control" id="produk_tahu" name="produk_tahu">
+                <option value="Tahu Putih" {% if features.produk_tahu == "Tahu Putih" %}selected{% endif %}>Tahu Putih</option>
+                <option value="Tahu Kuning" {% if features.produk_tahu == "Tahu Kuning" %}selected{% endif %}>Tahu Kuning</option>
+                <option value="Tahu Matang" {% if features.produk_tahu == "Tahu Matang" %}selected{% endif %}>Tahu Matang</option>
+                <option value="Tahu Sumedang" {% if features.produk_tahu == "Tahu Sumedang" %}selected{% endif %}>Tahu Sumedang</option>
+                <option value="Tahu Pletok" {% if features.produk_tahu == "Tahu Pletok" %}selected{% endif %}>Tahu Pletok</option>
+                <option value="Tahu Mencos" {% if features.produk_tahu == "Tahu Mencos" %}selected{% endif %}>Tahu Mencos</option>
+                <option value="Tahu Pong" {% if features.produk_tahu == "Tahu Pong" %}selected{% endif %}>Tahu Pong</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="aroma">Aroma</label>
+            <select class="form-control" id="aroma" name="aroma">
+                <option value="Bagus" {% if features.aroma == "Bagus" %}selected{% endif %}>Bagus</option>
+                <option value="Sedang" {% if features.aroma == "Sedang" %}selected{% endif %}>Sedang</option>
+                <option value="Rendah" {% if features.aroma == "Rendah" %}selected{% endif %}>Rendah</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="tekstur">Tekstur</label>
+            <select class="form-control" id="tekstur" name="tekstur">
+                <option value="Bagus" {% if features.tekstur == "Bagus" %}selected{% endif %}>Bagus</option>
+                <option value="Sedang" {% if features.tekstur == "Sedang" %}selected{% endif %}>Sedang</option>
+                <option value="Rendah" {% if features.tekstur == "Rendah" %}selected{% endif %}>Rendah</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cita_rasa">Cita Rasa</label>
+            <select class="form-control" id="cita_rasa" name="cita_rasa">
+                <option value="Bagus" {% if features.cita_rasa == "Bagus" %}selected{% endif %}>Bagus</option>
+                <option value="Sedang" {% if features.cita_rasa == "Sedang" %}selected{% endif %}>Sedang</option>
+                <option value="Rendah" {% if features.cita_rasa == "Rendah" %}selected{% endif %}>Rendah</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="masa_kadaluarsa">Masa Kadaluarsa</label>
+            <select class="form-control" id="masa_kadaluarsa" name="masa_kadaluarsa">
+                <option value="1 Hari" {% if features.masa_kadaluarsa == "1 Hari" %}selected{% endif %}>1 Hari</option>
+                <option value="2 Hari" {% if features.masa_kadaluarsa == "2 Hari" %}selected{% endif %}>2 Hari</option>
+                <option value="3 Hari" {% if features.masa_kadaluarsa == "3 Hari" %}selected{% endif %}>3 Hari</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Prediksi</button>
+    </form>
+
+    {% if prediction_nb is not none %}
+    <div class="mt-4">
+        <h4 class="mb-4">Hasil Prediksi:</h4>
+        <div class="row">
+            {% set nb_class = 'bg-ya text-white' if prediction_nb == 'Ya' else 'bg-tidak text-white' %}
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header {{ nb_class }}">
+                        <h5 class="mb-0">Naive Bayes</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Prediksi:</strong> {{ prediction_nb }}</p>
+                        <p class="card-text"><strong>Skor:</strong> {{ score_nb }}</p>
+                    </div>
+                </div>
+            </div>
+    
+            {% set cart_class = 'bg-ya text-white' if prediction_cart == 'Ya' else 'bg-tidak text-white' %}
+            <div class="col-md-6 mb-3">
+                <div class="card ">
+                    <div class="card-header {{ cart_class }}">
+                        <h5 class="mb-0">CART</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Prediksi:</strong> {{ prediction_cart }}</p>
+                        <p class="card-text"><strong>Skor:</strong> {{ score_cart }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

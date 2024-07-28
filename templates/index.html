@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block contentheader %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Analisis</h1>
+
+    <div class="row">
+        <!-- User Count Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Total Users
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="userCount">0</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Data Count Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Total Prediction Data
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="predictionDataCount">0</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-database fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Prediction Data Growth</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Prediction Data Distribution</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{%block jstambahan%}
+<!-- JavaScript to populate charts and counts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    async function fetchDashboardData() {
+        const response = await fetch('/api/dashboard-data');
+        const data = await response.json();
+        
+        // Update user count and prediction data count
+        document.getElementById('userCount').textContent = data.user_count;
+        document.getElementById('predictionDataCount').textContent = data.prediction_data_count;
+        
+        // Populate Line Chart
+        const ctxLine = document.getElementById('myAreaChart').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: data.growth_data.map(d => d.month),
+                datasets: [{
+                    label: "Predictions",
+                    data: data.growth_data.map(d => d.count),
+                    borderColor: "rgba(78, 115, 223, 1)",
+                    backgroundColor: "rgba(78, 115, 223, 0.2)",
+                    pointRadius: 5,
+                }],
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Populate Pie Chart
+        const ctxPie = document.getElementById('myPieChart').getContext('2d');
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: data.pie_data.map(d => d.category),
+                datasets: [{
+                    data: data.pie_data.map(d => d.count),
+                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                }],
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    }
+
+    fetchDashboardData();
+</script>
+{%endblock%}
