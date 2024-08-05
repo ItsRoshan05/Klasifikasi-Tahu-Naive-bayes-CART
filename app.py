@@ -68,18 +68,10 @@ async def login(email: str = Form(...), password: str = Form(...), db: Session =
 
 @app.get("/api/dashboard-data")
 def get_dashboard_data(db: Session = Depends(get_db)):
-    # Get user count
     user_count = crud.get_user_count(db)
-
-    # Get prediction data count
     prediction_data_count = crud.get_prediction_data_count(db)
-
-    # Sample data for growth (e.g., monthly)
-    growth_data = crud.get_growth_data(db)  # Return list of dicts with 'month' and 'count'
-
-    # Sample data for pie chart (e.g., distribution of predictions by category)
-    pie_data = crud.get_pie_chart_data(db)  # Return list of dicts with 'category' and 'count'
-
+    growth_data = crud.get_growth_data(db)
+    pie_data = crud.get_pie_chart_data(db) 
     return {
         "user_count": user_count,
         "prediction_data_count": prediction_data_count,
@@ -191,7 +183,7 @@ async def predict(request: Request, db: Session = Depends(get_db)):
         )
         
         # Simpan ke database
-        print("Attempting to save prediction data:")
+        # print("Attempting to save prediction data:")
         crud.create_prediction(db, prediction_data)
 
     except Exception as e:
@@ -266,11 +258,11 @@ async def update_user(
     db: Session = Depends(get_db)
 ):
 
-        # Check if password and repeat_password are provided and match
+    
     if password and repeat_password and password != repeat_password:
         raise HTTPException(status_code=400, detail="Passwords do not match")
 
-    # Create a UserUpdate object from the form data
+    
     user_update = schemas.UserUpdate(
         username=username,
         email=email,
