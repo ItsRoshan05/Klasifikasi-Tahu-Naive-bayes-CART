@@ -10,6 +10,9 @@ import schemas
 import utils
 import crud
 from db import SessionLocal, engine
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import train_test_split
+
 
 app = FastAPI()
 
@@ -296,3 +299,58 @@ async def delete_user(prediction_id: int, db: Session = Depends(get_db)):
     if deleted_user is None:
         raise HTTPException(status_code=404, detail="Prediction not found")
     return RedirectResponse(url="/predictions/", status_code=303)
+
+# Dummy data loading and encoding for demonstration
+data = pd.read_csv('data/revisi_data.csv')
+X = data[['Produk_Tahu', 'aroma', 'tekstur', 'cita_rasa', 'masa_kadaluarsa']]
+encoder = OneHotEncoder(sparse_output=False)
+X_encoded = encoder.fit_transform(X)
+columns_encoded = encoder.get_feature_names_out()
+
+df_encoded = pd.DataFrame(X_encoded, columns=columns_encoded)
+
+@app.get("/encoded-data", response_class=HTMLResponse)
+async def get_encoded_data(request: Request):
+    # Convert DataFrame to list of dictionaries
+    result = df_encoded.to_dict(orient='records')
+    columns = df_encoded.columns.tolist()
+    return templates.TemplateResponse("encoded_data.html", {"request": request, "data": result, "columns": columns})
+
+
+@app.get("/original-data", response_class=HTMLResponse)
+async def get_original_data(request: Request):
+    result = data.to_dict(orient='records')
+    columns = data.columns.tolist()
+    return templates.TemplateResponse("data.html", {"request": request, "data": result, "columns": columns})
+
+@app.get("/split-data", response_class=HTMLResponse)
+async def get_split_data(request: Request):
+    # Load data
+    X = data[['Produk_Tahu', 'aroma', 'tekstur', 'cita_rasa', 'masa_kadaluarsa']]
+    y = data['Kualitas']
+    
+    # Drop rows with NaN values
+    X = X.dropna()
+    y = y[X.index]  # Ensure target variable y matches the filtered X
+
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+
+    # Convert to DataFrame and concatenate with target variable
+    X_train_df = pd.DataFrame(X_train).reset_index(drop=True)
+    X_test_df = pd.DataFrame(X_test).reset_index(drop=True)
+    y_train_df = pd.DataFrame(y_train).reset_index(drop=True)
+    y_test_df = pd.DataFrame(y_test).reset_index(drop=True)
+    
+    train_data = pd.concat([X_train_df, y_train_df], axis=1).to_dict(orient='records')
+    test_data = pd.concat([X_test_df, y_test_df], axis=1).to_dict(orient='records')
+    
+    # Extract column names for DataTables
+    train_columns = train_data[0].keys() if train_data else []
+    
+    return templates.TemplateResponse("splitdata.html", {
+        "request": request,
+        "train_data": train_data,
+        "test_data": test_data,
+        "train_columns": train_columns
+    })
