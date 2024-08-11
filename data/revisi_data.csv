@@ -1,0 +1,111 @@
+NO,Produk_Tahu,aroma,tekstur,cita_rasa,masa_kadaluarsa,Kualitas
+1,Tahu Putih,Beraroma Gurih,Hancur,Gurih,1 Hari Setelah Produksi,Tinggi
+2,Tahu Kuning,Beraroma Gurih,Kenyal,Tidak Begitu Gurih,1 Hari Setelah Produksi,Tinggi
+3,Tahu Matang,Tidak Begitu Beraroma,Lembek,Gurih,2 Hari Setelah Produksi,Rendah
+4,Tahu Sumedang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+5,Tahu Pletok,Beraroma Gurih,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+6,Tahu Mencos,Beraroma Gurih,Hancur,Gurih,1 Hari Setelah Produksi,Tinggi
+7,Tahu Pong,Tidak Begitu Beraroma,Kenyal,Asam,3 Hari Setelah Produksi,Rendah
+8,Tahu Putih,Beraroma Tidak Sedap,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+9,Tahu Kuning,Tidak Begitu Beraroma,Kenyal,Gurih,2 Hari Setelah Produksi,Tinggi
+10,Tahu Matang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+11,Tahu Sumedang,Tidak Begitu Beraroma,Kenyal,Gurih,2 Hari Setelah Produksi,Rendah
+12,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+13,Tahu Mencos,Tidak Begitu Beraroma,Kenyal,Asam,3 Hari Setelah Produksi,Rendah
+14,Tahu Pong,Beraroma Tidak Sedap,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+15,Tahu Putih,Tidak Begitu Beraroma,Lembek,Gurih,3 Hari Setelah Produksi,Rendah
+16,Tahu Kuning,Tidak Begitu Beraroma,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+17,Tahu Matang,Beraroma Tidak Sedap,Hancur,Asam,1 Hari Setelah Produksi,Rendah
+18,Tahu Sumedang,Beraroma Gurih,Lembek,Asam,1 Hari Setelah Produksi,Tinggi
+19,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,3 Hari Setelah Produksi,Tinggi
+20,Tahu Mencos,Beraroma Gurih,Hancur,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+21,Tahu Pong,Beraroma Gurih,Lembek,Gurih,1 Hari Setelah Produksi,Tinggi
+22,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Tidak Begitu Gurih,1 Hari Setelah Produksi,Rendah
+23,Tahu Kuning,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+24,Tahu Matang,Tidak Begitu Beraroma,Hancur,Gurih,3 Hari Setelah Produksi,Rendah
+25,Tahu Sumedang,Beraroma Gurih,Kenyal,Gurih,2 Hari Setelah Produksi,Tinggi
+26,Tahu Pletok,Beraroma Gurih,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+27,Tahu Mencos,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+28,Tahu Pong,Beraroma Tidak Sedap,Kenyal,Gurih,2 Hari Setelah Produksi,Tinggi
+29,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+30,Tahu Kuning,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+31,Tahu Matang,Tidak Begitu Beraroma,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+32,Tahu Sumedang,Tidak Begitu Beraroma,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+33,Tahu Pletok,Tidak Begitu Beraroma,Kenyal,Gurih,3 Hari Setelah Produksi,Rendah
+34,Tahu Mencos,Tidak Begitu Beraroma,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+35,Tahu Pong,Tidak Begitu Beraroma,Hancur,Gurih,2 Hari Setelah Produksi,Rendah
+36,Tahu Putih,Beraroma Gurih,Lembek,Gurih,1 Hari Setelah Produksi,Tinggi
+37,Tahu Kuning,Beraroma Tidak Sedap,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+38,Tahu Matang,Beraroma Gurih,Kenyal,Asam,1 Hari Setelah Produksi,Tinggi
+39,Tahu Sumedang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+40,Tahu Pletok,Beraroma Gurih,Kenyal,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+41,Tahu Mencos,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+42,Tahu Pong,Beraroma Gurih,Hancur,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+43,Tahu Putih,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+44,Tahu Kuning,Tidak Begitu Beraroma,Kenyal,Asam,2 Hari Setelah Produksi,Rendah
+45,Tahu Matang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+46,Tahu Sumedang,Beraroma Tidak Sedap,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+47,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,3 Hari Setelah Produksi,Tinggi
+48,Tahu Mencos,Beraroma Gurih,Kenyal,Gurih,2 Hari Setelah Produksi,Tinggi
+49,Tahu Pong,Tidak Begitu Beraroma,Lembek,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+50,Tahu Putih,Beraroma Gurih,Lembek,Gurih,1 Hari Setelah Produksi,Tinggi
+51,Tahu Kuning,Tidak Begitu Beraroma,Hancur,Asam,1 Hari Setelah Produksi,Rendah
+52,Tahu Matang,Beraroma Tidak Sedap,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+53,Tahu Sumedang,Beraroma Gurih,Kenyal,Asam,1 Hari Setelah Produksi,Tinggi
+54,Tahu Pletok,Tidak Begitu Beraroma,Kenyal,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+55,Tahu Mencos,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+56,Tahu Pong,Beraroma Gurih,Hancur,Gurih,3 Hari Setelah Produksi,Rendah
+57,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+58,Tahu Kuning,Beraroma Gurih,Kenyal,Asam,1 Hari Setelah Produksi,Tinggi
+59,Tahu Matang,Tidak Begitu Beraroma,Kenyal,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+60,Tahu Sumedang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+61,Tahu Pletok,Beraroma Gurih,Hancur,Tidak Begitu Gurih,3 Hari Setelah Produksi,Rendah
+62,Tahu Mencos,Beraroma Gurih,Lembek,Gurih,1 Hari Setelah Produksi,Tinggi
+63,Tahu Pong,Beraroma Tidak Sedap,Kenyal,Gurih,2 Hari Setelah Produksi,Tinggi
+64,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Gurih,2 Hari Setelah Produksi,Rendah
+65,Tahu Kuning,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+66,Tahu Matang,Beraroma Gurih,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+67,Tahu Sumedang,Beraroma Gurih,Hancur,Gurih,1 Hari Setelah Produksi,Tinggi
+68,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+69,Tahu Mencos,Tidak Begitu Beraroma,Hancur,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+70,Tahu Pong,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+71,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Asam,2 Hari Setelah Produksi,Rendah
+72,Tahu Kuning,Beraroma Gurih,Kenyal,Tidak Begitu Gurih,1 Hari Setelah Produksi,Tinggi
+73,Tahu Matang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+74,Tahu Sumedang,Tidak Begitu Beraroma,Lembek,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+75,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+76,Tahu Mencos,Tidak Begitu Beraroma,Hancur,Asam,2 Hari Setelah Produksi,Rendah
+77,Tahu Pong,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+78,Tahu Putih,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+79,Tahu Kuning,Tidak Begitu Beraroma,Lembek,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+80,Tahu Matang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+81,Tahu Sumedang,Beraroma Tidak Sedap,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+82,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+83,Tahu Mencos,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+84,Tahu Pong,Tidak Begitu Beraroma,Lembek,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+85,Tahu Putih,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+86,Tahu Kuning,Tidak Begitu Beraroma,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+87,Tahu Matang,Beraroma Gurih,Kenyal,Asam,1 Hari Setelah Produksi,Tinggi
+88,Tahu Sumedang,Tidak Begitu Beraroma,Kenyal,Gurih,2 Hari Setelah Produksi,Rendah
+89,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+90,Tahu Mencos,Tidak Begitu Beraroma,Hancur,Gurih,2 Hari Setelah Produksi,Rendah
+91,Tahu Pong,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+92,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+93,Tahu Kuning,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+94,Tahu Matang,Tidak Begitu Beraroma,Hancur,Asam,2 Hari Setelah Produksi,Rendah
+95,Tahu Sumedang,Beraroma Gurih,Kenyal,Tidak Begitu Gurih,1 Hari Setelah Produksi,Tinggi
+96,Tahu Pletok,Beraroma Gurih,Lembek,Gurih,1 Hari Setelah Produksi,Tinggi
+97,Tahu Mencos,Tidak Begitu Beraroma,Lembek,Gurih,2 Hari Setelah Produksi,Rendah
+98,Tahu Pong,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+99,Tahu Putih,Tidak Begitu Beraroma,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+100,Tahu Kuning,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+101,Tahu Matang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+102,Tahu Sumedang,Tidak Begitu Beraroma,Hancur,Tidak Begitu Gurih,2 Hari Setelah Produksi,Rendah
+103,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+104,Tahu Mencos,Beraroma Gurih,Hancur,Asam,3 Hari Setelah Produksi,Rendah
+105,Tahu Pong,Beraroma Gurih,Kenyal,Tidak Begitu Gurih,1 Hari Setelah Produksi,Tinggi
+106,Tahu Putih,Tidak Begitu Beraroma,Kenyal,Gurih,2 Hari Setelah Produksi,Tinggi
+107,Tahu Kuning,Tidak Begitu Beraroma,Lembek,Gurih,2 Hari Setelah Produksi,Rendah
+108,Tahu Matang,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
+109,Tahu Sumedang,Tidak Begitu Beraroma,Hancur,Asam,2 Hari Setelah Produksi,Rendah
+110,Tahu Pletok,Beraroma Gurih,Kenyal,Gurih,1 Hari Setelah Produksi,Tinggi
