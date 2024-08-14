@@ -323,6 +323,18 @@ async def get_original_data(request: Request):
     columns = data.columns.tolist()
     return templates.TemplateResponse("data.html", {"request": request, "data": result, "columns": columns})
 
+@app.get("/data-naivebayes", response_class=HTMLResponse)
+async def get_original_data(request: Request):
+    result = data.to_dict(orient='records')
+    columns = data.columns.tolist()
+    return templates.TemplateResponse("datanb.html", {"request": request, "data": result, "columns": columns})
+
+@app.get("/data-cart", response_class=HTMLResponse)
+async def get_original_data(request: Request):
+    result = data.to_dict(orient='records')
+    columns = data.columns.tolist()
+    return templates.TemplateResponse("datacart.html", {"request": request, "data": result, "columns": columns})
+
 @app.get("/split-data", response_class=HTMLResponse)
 async def get_split_data(request: Request):
     # Load data

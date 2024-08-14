@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block csstambahan %}
+<link href="{{ url_for('static', path='vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block contentheader %}
+Naive Bayes Classification Report
+{% endblock %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Naive Bayes Accuracy and Classification Report</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="originalDataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                        <tr>
+                            {% for value in row.values() %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <div class="card-body">
+        <h5>Akurasi Naive Bayes: 0.91</h5>
+        <div class="table-responsive mb-4">
+            <table class="table table-bordered" id="classificationReportTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-Score</th>
+                        <th>Support</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rendah</td>
+                        <td>0.86</td>
+                        <td>1.00</td>
+                        <td>0.92</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Tinggi</td>
+                        <td>1.00</td>
+                        <td>0.80</td>
+                        <td>0.89</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right font-weight-bold">Accuracy</td>
+                        <td>0.91</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right font-weight-bold">Macro Avg</td>
+                        <td>0.91</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right font-weight-bold">Weighted Avg</td>
+                        <td>0.91</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <h6>Specificities for each class:</h6>
+            <table class="table table-bordered" id="specificitiesTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Specificity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Class 0 (Rendah)</td>
+                        <td>0.80</td>
+                    </tr>
+                    <tr>
+                        <td>Class 1 (Tinggi)</td>
+                        <td>1.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block jstambahan %}
+<!-- Page level plugins -->
+<script src="{{ url_for('static', path='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', path='vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    $('#classificationReportTable').DataTable({
+        "paging": false,
+        "searching": false,
+        "info": false
+    });
+
+    $('#specificitiesTable').DataTable({
+        "paging": false,
+        "searching": false,
+        "info": false
+    });
+});
+</script>
+<script>
+    $(document).ready(function() {
+        $('#originalDataTable').DataTable();
+    });
+    </script>
+{% endblock %}
