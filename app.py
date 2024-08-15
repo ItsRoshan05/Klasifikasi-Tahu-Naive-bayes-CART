@@ -300,21 +300,31 @@ async def delete_user(prediction_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Prediction not found")
     return RedirectResponse(url="/predictions/", status_code=303)
 
-# Dummy data loading and encoding for demonstration
-data = pd.read_csv('data/revisi_data.csv')
-X = data[['Produk_Tahu', 'aroma', 'tekstur', 'cita_rasa', 'masa_kadaluarsa']]
-encoder = OneHotEncoder(sparse_output=False)
-X_encoded = encoder.fit_transform(X)
-columns_encoded = encoder.get_feature_names_out()
-
-df_encoded = pd.DataFrame(X_encoded, columns=columns_encoded)
-
 @app.get("/encoded-data", response_class=HTMLResponse)
 async def get_encoded_data(request: Request):
-    # Convert DataFrame to list of dictionaries
+    # Dummy data loading and encoding for demonstration
+    data = pd.read_csv('data/revisi_data.csv')
+    X = data[['Produk_Tahu', 'aroma', 'tekstur', 'cita_rasa', 'masa_kadaluarsa']]
+    
+    # OneHotEncoder for encoding categorical variables
+    encoder = OneHotEncoder(sparse_output=False)
+    X_encoded = encoder.fit_transform(X)
+    columns_encoded = encoder.get_feature_names_out()
+    
+    # Convert the encoded data into a DataFrame
+    df_encoded = pd.DataFrame(X_encoded, columns=columns_encoded)
+    
+    # Convert DataFrame to list of dictionaries for easier rendering in templates
     result = df_encoded.to_dict(orient='records')
     columns = df_encoded.columns.tolist()
-    return templates.TemplateResponse("encoded_data.html", {"request": request, "data": result, "columns": columns})
+    
+    # Render the template with the encoded data
+    return templates.TemplateResponse("encoded_data.html", {
+        "request": request,
+        "data": result,
+        "columns": columns
+    })
+
 
 
 @app.get("/original-data", response_class=HTMLResponse)
