@@ -300,10 +300,10 @@ async def delete_user(prediction_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Prediction not found")
     return RedirectResponse(url="/predictions/", status_code=303)
 
+data = pd.read_csv('data/revisi_data.csv')
 @app.get("/encoded-data", response_class=HTMLResponse)
 async def get_encoded_data(request: Request):
     # Dummy data loading and encoding for demonstration
-    data = pd.read_csv('data/revisi_data.csv')
     X = data[['Produk_Tahu', 'aroma', 'tekstur', 'cita_rasa', 'masa_kadaluarsa']]
     
     # OneHotEncoder for encoding categorical variables
