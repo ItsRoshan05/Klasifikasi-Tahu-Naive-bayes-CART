@@ -199,11 +199,12 @@ async def predict(request: Request, db: Session = Depends(get_db)):
     return templates.TemplateResponse("prediksi.html", {
         "request": request,
         "prediction_nb": prediction_nb[0],
-        "score_nb": score_nb,
+        "score_nb": "{:.1f}".format(score_nb * 100),  # Membatasi hingga 1 angka di belakang koma
         "prediction_cart": prediction_cart[0],
-        "score_cart": score_cart,
+        "score_cart": "{:.1f}".format(score_cart * 100),  # Membatasi hingga 1 angka di belakang koma
         "features": features
     })
+
 
 # Logout
 @app.post("/logout")
