@@ -36,7 +36,7 @@ CART Classification Report
         </div>
     </div>
     <div class="card-body">
-        <h5>Akurasi CART: 100%</h5>
+        <h5>Akurasi CART: 86%</h5>
         <div class="table-responsive mb-4">
             <table class="table table-bordered" id="classificationReportTable" width="100%" cellspacing="0">
                 <thead>
@@ -52,28 +52,28 @@ CART Classification Report
                     <tr>
                         <td>Rendah</td>
                         <td>1.00</td>
-                        <td>1.00</td>
-                        <td>1.00</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>Tinggi</td>
-                        <td>1.00</td>
-                        <td>1.00</td>
-                        <td>1.00</td>
+                        <td>0.70</td>
+                        <td>0.82</td>
                         <td>10</td>
                     </tr>
                     <tr>
+                        <td>Tinggi</td>
+                        <td>0.80</td>
+                        <td>1.00</td>
+                        <td>0.89</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
                         <td colspan="4" class="text-right font-weight-bold">Accuracy</td>
-                        <td>100%</td>
+                        <td>86%</td>
                     </tr>
                     <tr>
                         <td colspan="4" class="text-right font-weight-bold">Macro Avg</td>
-                        <td>1.00</td>
+                        <td>0.85</td>
                     </tr>
                     <tr>
                         <td colspan="4" class="text-right font-weight-bold">Weighted Avg</td>
-                        <td>1.00</td>
+                        <td>0.86</td>
                     </tr>
                 </tbody>
             </table>
@@ -95,7 +95,7 @@ CART Classification Report
                     </tr>
                     <tr>
                         <td>Class 1 (Tinggi)</td>
-                        <td>1.00</td>
+                        <td>0.70</td>
                     </tr>
                 </tbody>
             </table>
@@ -129,5 +129,5 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('#originalDataTable').DataTable();
     });
-    </script>
+</script>
 {% endblock %}
